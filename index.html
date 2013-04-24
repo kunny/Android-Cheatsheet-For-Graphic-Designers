@@ -1,642 +1,642 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xml:lang="en" version="XHTML+RDFa 1.0">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-	<title>Android cheatsheet for graphic designers</title>
-	<meta property="og:title" content="Android cheatsheet for graphic designers" />
+    <title>Android cheatsheet for graphic designers</title>
+    <meta property="og:title" content="Android cheatsheet for graphic designers" />
 
-	<meta name="description" content="This simple cheatsheet should help graphic designers to do their job better, and to simplify developers' lives." />
-	<meta property="og:description" content="This simple cheatsheet should help graphic designers to do their job better, and to simplify developers' lives." />
+    <meta name="description" content="This simple cheatsheet should help graphic designers to do their job better, and to simplify developers' lives." />
+    <meta property="og:description" content="This simple cheatsheet should help graphic designers to do their job better, and to simplify developers' lives." />
 
-	<link rel="shortcut icon" type="image/x-icon" href="http://developer.android.com/favicon.ico" />
-	<meta property="og:image" content="http://developer.android.com/design/media/design_elements_landing.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="http://developer.android.com/favicon.ico" />
+    <meta property="og:image" content="http://developer.android.com/design/media/design_elements_landing.png" />
 
-	<!-- Kahi's Universal Cascading Style Sheet -->
-	<link rel="stylesheet" href="http://ucss.kahi.cz/latest/style.css" type="text/css" media="screen, projection" />
-	<link rel="stylesheet" href="http://ucss.kahi.cz/latest/style.print.css" type="text/css" media="print" />
-	<script src="http://ucss.kahi.cz/latest/jq.js" type="text/javascript"></script>
-	<script type="text/javascript">
-		var kucss_breadcrumbs = true;
-		var kucss_autoanchors = true;
-	</script>
-	<script src="http://ucss.kahi.cz/latest/my.js" type="text/javascript"></script>
-	<style type="text/css" media="screen, projection">
-		abbr {border-bottom:1px dotted #666666;cursor:help;}
-		ul ul, ol ol {padding-left:2em;}
-		.noscreen {display:none !important;}
-	</style>
+    <!-- Kahi's Universal Cascading Style Sheet -->
+    <link rel="stylesheet" href="http://ucss.kahi.cz/latest/style.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="http://ucss.kahi.cz/latest/style.print.css" type="text/css" media="print" />
+    <script src="http://ucss.kahi.cz/latest/jq.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var kucss_breadcrumbs = true;
+        var kucss_autoanchors = true;
+    </script>
+    <script src="http://ucss.kahi.cz/latest/my.js" type="text/javascript"></script>
+    <style type="text/css" media="screen, projection">
+        abbr {border-bottom:1px dotted #666666;cursor:help;}
+        ul ul, ol ol {padding-left:2em;}
+        .noscreen {display:none !important;}
+    </style>
 
-	<!-- JS functions -->
-	<script type="text/javascript">
-		//<![CDATA[
-		function lastModifiedAgo()
-		{
-			var x = new Date (document.lastModified);
-			Modif = new Date(x.toGMTString());
-			Year = takeYear(Modif);
-			Month = Modif.getMonth();
-			Day = Modif.getDate();
-			Mod = (Date.UTC(Year,Month,Day,0,0,0))/86400000;
-			x = new Date();
-			today = new Date(x.toGMTString());
-			Year2 = takeYear(today);
-			Month2 = today.getMonth();
-			Day2 = today.getDate();
-			now = (Date.UTC(Year2,Month2,Day2,0,0,0))/86400000;
-			daysago = now - Mod;
+    <!-- JS functions -->
+    <script type="text/javascript">
+        //<![CDATA[
+        function lastModifiedAgo()
+        {
+            var x = new Date (document.lastModified);
+            Modif = new Date(x.toGMTString());
+            Year = takeYear(Modif);
+            Month = Modif.getMonth();
+            Day = Modif.getDate();
+            Mod = (Date.UTC(Year,Month,Day,0,0,0))/86400000;
+            x = new Date();
+            today = new Date(x.toGMTString());
+            Year2 = takeYear(today);
+            Month2 = today.getMonth();
+            Day2 = today.getDate();
+            now = (Date.UTC(Year2,Month2,Day2,0,0,0))/86400000;
+            daysago = now - Mod;
 
-			if (daysago < 0) return '';
-			unit = 'days';
-			if (daysago > 730)
-			{
-				daysago = Math.floor(daysago/365);
-				unit = 'years';
-			}
-			else if (daysago > 60)
-			{
-				daysago = Math.floor(daysago/30);
-				unit = 'months';
-			}
-			else if (daysago > 14)
-			{
-				daysago = Math.floor(daysago/7);
-				unit = 'weeks'
-			}
+            if (daysago < 0) return '';
+            unit = '일';
+            if (daysago > 730)
+            {
+                daysago = Math.floor(daysago/365);
+                unit = '년';
+            }
+            else if (daysago > 60)
+            {
+                daysago = Math.floor(daysago/30);
+                unit = '월';
+            }
+            else if (daysago > 14)
+            {
+                daysago = Math.floor(daysago/7);
+                unit = '주'
+            }
 
-			var towrite = '';
-			if (daysago == 0) towrite += 'today';
-			else if (daysago == 1) towrite += 'yesterday';
-			else towrite += daysago + ' ' + unit + ' ago';
-			return towrite;
-		}
+            var towrite = '';
+            if (daysago == 0) towrite += '오늘';
+            else if (daysago == 1) towrite += '어제';
+            else towrite += daysago + ' ' + unit + ' 전에';
+            return towrite;
+        }
 
 
-		function takeYear(theDate)
-		{
-			x = theDate.getYear();
-			var y = x % 100;
-			y += (y < 38) ? 2000 : 1900;
-			return y;
-		}
-		//]]>
-	</script>
+        function takeYear(theDate)
+        {
+            x = theDate.getYear();
+            var y = x % 100;
+            y += (y < 38) ? 2000 : 1900;
+            return y;
+        }
+        //]]>
+    </script>
 
-	<!-- Google Analytics -->
-	<script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-40282536-1']);
-		_gaq.push(['_trackPageview']);
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-40282536-1']);
+        _gaq.push(['_trackPageview']);
 
-		(function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-	</script>
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
 </head>
 <body>
-	<h1>Android cheatsheet for graphic designers</h1>
-	<p>Graphic designers aren't programmers and sometimes don't know how to properly prepare graphic assets for developers. This simple cheatsheet should help them to do their job better, and to simplify developers' lives.</p>
+<h1>Android cheatsheet for graphic designers</h1>
+<p>Graphic designers aren't programmers and sometimes don't know how to properly prepare graphic assets for developers. This simple cheatsheet should help them to do their job better, and to simplify developers' lives.</p>
 
 
-	<h2 id="content">Content</h2>
-	<ol class="important">
-		<li><a href="#dimensions">Dimensions</a>
-			<ol>
-				<li><a href="#screen-densities-and-icon-dimensions">Screen densities and icon dimensions</a></li>
-				<li><a href="#google-play-asset-dimensions">Google Play asset dimensions</a></li>
-				<li><a href="#size-buckets">Size buckets</a></li>
-				<li><a href="#views-dimensions-and-spacing">Views dimensions and spacing</a></li>
-				<li><a href="#action-bar-height">Action bar height</a></li>
-				<li><a href="#text-size">Text size</a></li>
-			</ol>
-		</li>
-		<li><a href="#images-and-themes">Images and themes</a>
-			<ol>
-				<li><a href="#nine-patch">Nine-patch</a></li>
-				<li><a href="#colors">Colors</a></li>
-				<li><a href="#holo-themes">Holo themes</a></li>
-			</ol>
-		</li>
-		<li><a href="#naming-conventions">Naming conventions</a>
-			<ol>
-				<li><a href="#naming-conventions-for-drawables">Naming conventions for drawables</a></li>
-				<li><a href="#naming-conventions-for-icon-assets">Naming conventions for icon assets</a></li>
-				<li><a href="#naming-conventions-for-selector-states">Naming conventions for selector states</a></li>
-				<li><a href="#organizing-drawables-to-directories">Organizing drawables to directories</a></li>
-			</ol>
-		</li>
-		<li><a href="#resources">Resources</a>
-			<ol>
-				<li><a href="#graphic-generators">Graphic generators</a></li>
-				<li><a href="#useful-links-for-designers">Useful links for designers</a></li>
-				<li><a href="#download">Download</a></li>
-			</ol>
-		</li>
-		<li><a href="#written-by">Written by</a></li>
-	</ol>
+<h2 id="content">목차</h2>
+<ol class="important">
+    <li><a href="#dimensions">크기</a>
+        <ol>
+            <li><a href="#screen-densities-and-icon-dimensions">화면 밀도와 아이콘 크기</a></li>
+            <li><a href="#google-play-asset-dimensions">Google Play asset dimensions</a></li>
+            <li><a href="#size-buckets">Size buckets</a></li>
+            <li><a href="#views-dimensions-and-spacing">뷰 크기와 여백</a></li>
+            <li><a href="#action-bar-height">액션바(Action Bar) 높이</a></li>
+            <li><a href="#text-size">문자열 크기</a></li>
+        </ol>
+    </li>
+    <li><a href="#images-and-themes">이미지와 테마</a>
+        <ol>
+            <li><a href="#nine-patch">나인패치(9-Patch)</a></li>
+            <li><a href="#colors">색상</a></li>
+            <li><a href="#holo-themes">홀로(Holo) 테마</a></li>
+        </ol>
+    </li>
+    <li><a href="#naming-conventions">이름 규칙</a>
+        <ol>
+            <li><a href="#naming-conventions-for-drawables">Naming conventions for drawables</a></li>
+            <li><a href="#naming-conventions-for-icon-assets">Naming conventions for icon assets</a></li>
+            <li><a href="#naming-conventions-for-selector-states">Naming conventions for selector states</a></li>
+            <li><a href="#organizing-drawables-to-directories">Organizing drawables to directories</a></li>
+        </ol>
+    </li>
+    <li><a href="#resources">리소스</a>
+        <ol>
+            <li><a href="#graphic-generators">Graphic generators</a></li>
+            <li><a href="#useful-links-for-designers">Useful links for designers</a></li>
+            <li><a href="#download">Download</a></li>
+        </ol>
+    </li>
+    <li><a href="#written-by">작성자 정보</a></li>
+</ol>
 
 
-	<h2 id="dimensions">Dimensions</h2>
+<h2 id="dimensions">크기</h2>
 
 
-	<h3 id="screen-densities-and-icon-dimensions">Screen densities and icon dimensions</h3>
-	<table>
-		<thead>
-			<tr>
-				<th>Qualifier</th>
-				<th>DPI</th>
-				<th>Coefficient</th>
-				<th>Launcher icon</th>
-				<th>Action bar, tab icon</th>
-				<th>Notification icon (API 11)</th>
-				<th>Notification icon (API 9)</th>
-				<th>Notification icon (older)</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<th>ldpi</th>
-				<td>120</td>
-				<td>0.75</td>
-				<td>36 x 36<br />32 x 32</td>
-				<td>24 x 24<br />18 x 18</td>
-				<td>18 x 18<br />16 x 16</td>
-				<td>12 x 19<br />12 x 12</td>
-				<td>19 x 19<br />16 x 16</td>
-			</tr>
-			<tr>
-				<th>mdpi</th>
-				<td>160</td>
-				<td><abbr title="baseline">1.0</abbr></td>
-				<td>48 x 48<br />42 x 42</td>
-				<td>32 x 32<br />24 x 24</td>
-				<td>24 x 24<br />22 x 22</td>
-				<td>16 x 25<br />16 x 16</td>
-				<td>25 x 25<br />21 x 21</td>
-			</tr>
-			<tr>
-				<th>hdpi</th>
-				<td>240</td>
-				<td>1.5</td>
-				<td>72 x 72<br />64 x 64</td>
-				<td>48 x 48<br />36 x 36</td>
-				<td>36 x 36<br />33 x 33</td>
-				<td>24 x 38<br />24 x 24</td>
-				<td>38 x 38<br />32 x 32</td>
-			</tr>
-			<tr>
-				<th>xhdpi</th>
-				<td>320</td>
-				<td>2.0</td>
-				<td>96 x 96<br />84 x 84</td>
-				<td>64 x 64<br />48 x 48</td>
-				<td>48 x 48<br />44 x 44</td>
-				<td>32 x 50<br />32 x 32</td>
-				<td>50 x 50<br />42 x 42</td>
-			</tr>
-			<tr>
-				<th>xxhdpi</th>
-				<td>480</td>
-				<td>3.0</td>
-				<td>144 x 144<br />126 x 126</td>
-				<td>96 x 96<br />72 x 72</td>
-				<td>72 x 72<br />66 x 66</td>
-				<td>48 x 75<br />48 x 48</td>
-				<td>75 x 75<br />63 x 63</td>
-			</tr>
-		</tbody>
-	</table>
-	<p>Notice: the first icon dimension in table cell is <b>full asset size</b>, the second icon dimension is <b>optical square</b>. Dimension values are in <b>pixels</b>.</p>
-	<p>Tip: creating <b>ldpi</b> assets is not really needed anymore. The devices are rare and the platform will just scale down <b>mdpi</b>.</p>
-	<p>Sources and useful links: 
-		<a href="http://developer.android.com/design/style/iconography.html">Iconography</a>, 
-		<a href="http://developer.android.com/guide/practices/screens_support.html">Supporting Multiple Screens</a>, 
-		<a href="http://developer.android.com/guide/practices/ui_guidelines/icon_design.html">Icon Design Guidelines</a>, 
-		<a href="http://developer.android.com/guide/topics/resources/more-resources.html#Dimension">Dimension</a>
-	</p>
+<h3 id="screen-densities-and-icon-dimensions">화면 밀도와 아이콘 크기</h3>
+<table>
+    <thead>
+    <tr>
+        <th>Qualifier</th>
+        <th>DPI</th>
+        <th>Coefficient</th>
+        <th>Launcher icon</th>
+        <th>Action bar, tab icon</th>
+        <th>Notification icon (API 11)</th>
+        <th>Notification icon (API 9)</th>
+        <th>Notification icon (older)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th>ldpi</th>
+        <td>120</td>
+        <td>0.75</td>
+        <td>36 x 36<br />32 x 32</td>
+        <td>24 x 24<br />18 x 18</td>
+        <td>18 x 18<br />16 x 16</td>
+        <td>12 x 19<br />12 x 12</td>
+        <td>19 x 19<br />16 x 16</td>
+    </tr>
+    <tr>
+        <th>mdpi</th>
+        <td>160</td>
+        <td><abbr title="baseline">1.0</abbr></td>
+        <td>48 x 48<br />42 x 42</td>
+        <td>32 x 32<br />24 x 24</td>
+        <td>24 x 24<br />22 x 22</td>
+        <td>16 x 25<br />16 x 16</td>
+        <td>25 x 25<br />21 x 21</td>
+    </tr>
+    <tr>
+        <th>hdpi</th>
+        <td>240</td>
+        <td>1.5</td>
+        <td>72 x 72<br />64 x 64</td>
+        <td>48 x 48<br />36 x 36</td>
+        <td>36 x 36<br />33 x 33</td>
+        <td>24 x 38<br />24 x 24</td>
+        <td>38 x 38<br />32 x 32</td>
+    </tr>
+    <tr>
+        <th>xhdpi</th>
+        <td>320</td>
+        <td>2.0</td>
+        <td>96 x 96<br />84 x 84</td>
+        <td>64 x 64<br />48 x 48</td>
+        <td>48 x 48<br />44 x 44</td>
+        <td>32 x 50<br />32 x 32</td>
+        <td>50 x 50<br />42 x 42</td>
+    </tr>
+    <tr>
+        <th>xxhdpi</th>
+        <td>480</td>
+        <td>3.0</td>
+        <td>144 x 144<br />126 x 126</td>
+        <td>96 x 96<br />72 x 72</td>
+        <td>72 x 72<br />66 x 66</td>
+        <td>48 x 75<br />48 x 48</td>
+        <td>75 x 75<br />63 x 63</td>
+    </tr>
+    </tbody>
+</table>
+<p>Notice: the first icon dimension in table cell is <b>full asset size</b>, the second icon dimension is <b>optical square</b>. Dimension values are in <b>pixels</b>.</p>
+<p>Tip: creating <b>ldpi</b> assets is not really needed anymore. The devices are rare and the platform will just scale down <b>mdpi</b>.</p>
+<p>Sources and useful links:
+    <a href="http://developer.android.com/design/style/iconography.html">Iconography</a>,
+    <a href="http://developer.android.com/guide/practices/screens_support.html">Supporting Multiple Screens</a>,
+    <a href="http://developer.android.com/guide/practices/ui_guidelines/icon_design.html">Icon Design Guidelines</a>,
+    <a href="http://developer.android.com/guide/topics/resources/more-resources.html#Dimension">Dimension</a>
+</p>
 
 
-	<h3 id="google-play-asset-dimensions">Google Play asset dimensions</h3>
-	<table>
-		<tbody>
-			<tr>
-				<th>Asset Type</th>
-				<th>Required</th>
-				<th>Image type</th>
-				<th>Dimension</th>
-			</tr>
-			<tr>
-				<td>Screenshot</td>
-				<td>yes</td>
-				<td>JPEG or 24-bit PNG<br />(no alpha)</td>
-				<td>min length for any side: 320 px<br />max length for any side: 3840 px</td>
-			</tr>
-			<tr>
-				<td>High-res app icon</td>
-				<td>yes</td>
-				<td>32-bit PNG<br />(with alpha)</td>
-				<td>512 x 512 px</td>
-			</tr>
-			<tr>
-				<td>Feature graphic</td>
-				<td>no</td>
-				<td>JPEG or 24-bit PNG<br />(no alpha)</td>
-				<td>1024 x 500 px</td>
-			</tr>
-			<tr>
-				<td>Promotional graphic</td>
-				<td>no</td>
-				<td>JPEG or 24-bit PNG<br />(no alpha)</td>
-				<td>180 x 120 px</td>
-			</tr>
-			<tr>
-				<td>Video link</td>
-				<td>no</td>
-				<td>URL of YouTube video</td>
-				<td>-</td>
-			</tr>
-		</tbody>
-	</table>
-	<p>Sources and useful links: 
-		<a href="https://support.google.com/googleplay/android-developer/answer/1078870">Graphic and Image Assets</a>, 
-		<a href="http://android-developers.blogspot.cz/2011/10/android-market-featured-image.html">Google Play Featured-Image Guidelines</a>, 
-		<a href="http://developer.android.com/design/style/iconography.html#launcher">Iconography</a>
-	</p>
+<h3 id="google-play-asset-dimensions">Google Play게시용 이미지 크기</h3>
+<table>
+    <tbody>
+    <tr>
+        <th>종류</th>
+        <th>필수</th>
+        <th>이미지 유형</th>
+        <th>크기</th>
+    </tr>
+    <tr>
+        <td>스크린샷</td>
+        <td>O</td>
+        <td>JPEG / 24-bit PNG<br />(투명레이어 없음)</td>
+        <td>각 변당 최소 320 px<br />간 변당 최대 3840 px</td>
+    </tr>
+    <tr>
+        <td>고해상도 앱 아이콘</td>
+        <td>O</td>
+        <td>32-bit PNG<br />(투명레이어 지원)</td>
+        <td>512 x 512 px</td>
+    </tr>
+    <tr>
+        <td>Feature graphic</td>
+        <td>X</td>
+        <td>JPEG or 24-bit PNG<br />(no alpha)</td>
+        <td>1024 x 500 px</td>
+    </tr>
+    <tr>
+        <td>홍보용 이미지</td>
+        <td>X</td>
+        <td>JPEG or 24-bit PNG<br />(no alpha)</td>
+        <td>180 x 120 px</td>
+    </tr>
+    <tr>
+        <td>비디오 링크</td>
+        <td>X</td>
+        <td>유튜브 비디오 URL</td>
+        <td>-</td>
+    </tr>
+    </tbody>
+</table>
+<p>Sources and useful links:
+    <a href="https://support.google.com/googleplay/android-developer/answer/1078870">Graphic and Image Assets</a>,
+    <a href="http://android-developers.blogspot.cz/2011/10/android-market-featured-image.html">Google Play Featured-Image Guidelines</a>,
+    <a href="http://developer.android.com/design/style/iconography.html#launcher">Iconography</a>
+</p>
 
 
-	<h3 id="size-buckets">Size buckets</h3>
-	<table>
-		<tbody>
-			<tr>
-				<th>Type</th>
-				<th>Dimension</th>
-			</tr>
-			<tr>
-				<td>Handset</td>
-				<td>smaller than 600 dp</td>
-			</tr>
-			<tr>
-				<td>Tablet</td>
-				<td>larger than or equal 600 dp</td>
-			</tr>
-		</tbody>
-	</table>
-	<p><img src="http://developer.android.com/design/media/metrics_diagram.png" alt="Size buckets" /></p>
-	<p>Notice: one dp (density-independent pixels) is one pixel on a 160 DPI screen.</p>
-	<p>Sources and useful links: <a href="http://developer.android.com/design/style/metrics-grids.html">Metrics and Grids</a></p>
+<h3 id="size-buckets">Size buckets</h3>
+<table>
+    <tbody>
+    <tr>
+        <th>Type</th>
+        <th>Dimension</th>
+    </tr>
+    <tr>
+        <td>Handset</td>
+        <td>smaller than 600 dp</td>
+    </tr>
+    <tr>
+        <td>Tablet</td>
+        <td>larger than or equal 600 dp</td>
+    </tr>
+    </tbody>
+</table>
+<p><img src="http://developer.android.com/design/media/metrics_diagram.png" alt="Size buckets" /></p>
+<p>Notice: one dp (density-independent pixels) is one pixel on a 160 DPI screen.</p>
+<p>Sources and useful links: <a href="http://developer.android.com/design/style/metrics-grids.html">Metrics and Grids</a></p>
 
 
-	<h3 id="views-dimensions-and-spacing">Views dimensions and spacing</h3>
-	<p><b>Touchable UI components</b> are generally laid out along <b>48 dp</b> units. <b>Spacing</b> between each UI element is <b>8 dp</b>.</p>
-	<p><img src="http://developer.android.com/design/media/metrics_48.png" alt="48dp rhythm" /></p>
-	<p><img src="http://developer.android.com/design/media/metrics_closeup.png" alt="Button dimensions and spacing" /></p>
-	<p><img src="http://developer.android.com/design/media/metrics_forms.png" alt="Form dimensions and spacing" /></p>
-	<p>Sources and useful links: <a href="http://developer.android.com/design/style/metrics-grids.html">Metrics and Grids</a></p>
+<h3 id="views-dimensions-and-spacing">Views dimensions and spacing</h3>
+<p><b>Touchable UI components</b> are generally laid out along <b>48 dp</b> units. <b>Spacing</b> between each UI element is <b>8 dp</b>.</p>
+<p><img src="http://developer.android.com/design/media/metrics_48.png" alt="48dp rhythm" /></p>
+<p><img src="http://developer.android.com/design/media/metrics_closeup.png" alt="Button dimensions and spacing" /></p>
+<p><img src="http://developer.android.com/design/media/metrics_forms.png" alt="Form dimensions and spacing" /></p>
+<p>Sources and useful links: <a href="http://developer.android.com/design/style/metrics-grids.html">Metrics and Grids</a></p>
 
 
-	<h3 id="action-bar-height">Action bar height</h3>
-	<table>
-		<tbody>
-			<tr>
-				<th>Qualifier</th>
-				<th>Dimension</th>
-			</tr>
-			<tr>
-				<td>Portrait</td>
-				<td>48 dp</td>
-			</tr>
-			<tr>
-				<td>Landscape</td>
-				<td>40 dp</td>
-			</tr>
-			<tr>
-				<td><abbr title="sw600dp qualifier">Tablet</abbr></td>
-				<td>56 dp</td>
-			</tr>
-		</tbody>
-	</table>
-	<p>Sources and useful links: <a href="http://developer.android.com/guide/topics/ui/actionbar.html">Action Bar</a></p>
+<h3 id="action-bar-height">Action bar height</h3>
+<table>
+    <tbody>
+    <tr>
+        <th>Qualifier</th>
+        <th>Dimension</th>
+    </tr>
+    <tr>
+        <td>Portrait</td>
+        <td>48 dp</td>
+    </tr>
+    <tr>
+        <td>Landscape</td>
+        <td>40 dp</td>
+    </tr>
+    <tr>
+        <td><abbr title="sw600dp qualifier">Tablet</abbr></td>
+        <td>56 dp</td>
+    </tr>
+    </tbody>
+</table>
+<p>Sources and useful links: <a href="http://developer.android.com/guide/topics/ui/actionbar.html">Action Bar</a></p>
 
 
-	<h3 id="text-size">Text size</h3>
-	<table>
-		<tbody>
-			<tr>
-				<th>Type</th>
-				<th>Dimension</th>
-			</tr>
-			<tr>
-				<td>Micro</td>
-				<td>12 sp</td>
-			</tr>
-			<tr>
-				<td>Small</td>
-				<td>14 sp</td>
-			</tr>
-			<tr>
-				<td>Medium</td>
-				<td>18 sp</td>
-			</tr>
-			<tr>
-				<td>Large</td>
-				<td>22 sp</td>
-			</tr>
-		</tbody>
-	</table>
-	<p>Notice: one sp (scale-independent pixels) is one pixel on a 160 DPI screen if the user's global text scale is set to 100%.</p>
-	<p>Sources and useful links: <a href="http://developer.android.com/design/style/typography.html">Typography</a></p>
+<h3 id="text-size">Text size</h3>
+<table>
+    <tbody>
+    <tr>
+        <th>Type</th>
+        <th>Dimension</th>
+    </tr>
+    <tr>
+        <td>Micro</td>
+        <td>12 sp</td>
+    </tr>
+    <tr>
+        <td>Small</td>
+        <td>14 sp</td>
+    </tr>
+    <tr>
+        <td>Medium</td>
+        <td>18 sp</td>
+    </tr>
+    <tr>
+        <td>Large</td>
+        <td>22 sp</td>
+    </tr>
+    </tbody>
+</table>
+<p>Notice: one sp (scale-independent pixels) is one pixel on a 160 DPI screen if the user's global text scale is set to 100%.</p>
+<p>Sources and useful links: <a href="http://developer.android.com/design/style/typography.html">Typography</a></p>
 
 
-	<h2 id="images-and-themes">Images and themes</h2>
+<h2 id="images-and-themes">이미지와 테마</h2>
 
 
-	<h3 id="nine-patch">Nine-patch</h3>
-	<p>A Nine-patch drawable is a <b>stretchable bitmap image</b>, which Android will <b>automatically resize</b> to accommodate the contents of the view in which you have placed it as the <b>background</b>, e.g. nine-patch background for button, which must stretch to accommodate strings of various lengths. The rules for nine-patch image are following:</p>
-	<ul class="important">
-		<li>Standard PNG image with alpha</li>
-		<li>Filename suffix is <b>".9.png"</b>, e.g. "btn_login_normal.9.png"</li>
-		<li>Image has an extra <b>1 pixel wide border</b>, used to define the stretchable/static/padding areas</li>
-		<li><b>Stretchable</b> sections are indicated by 1 px wide <abbr title="must be #000000"><b>black</b></abbr> line(s) in the <b>left and top</b> part of the border</li>
-		<li><b>Static</b> sections are indicated by fully <b>transparent</b> or white pixels</li>
-		<li><b>Padding</b> area (optional) is indicated by 1 px wide <abbr title="must be #000000"><b>black</b></abbr> line in the <b>right and bottom</b> part of the border</li>
-	</ul>
-	<p><img src="http://developer.android.com/images/ninepatch_raw.png" alt="Nine-patch" /></p>
-	<p>Sources and useful links: 
-		<a href="http://developer.android.com/guide/topics/graphics/2d-graphics.html#nine-patch">Canvas and Drawables</a>, 
-		<a href="http://developer.android.com/tools/help/draw9patch.html">Draw 9-patch</a>
-	</p>
+<h3 id="nine-patch">나인패치(9-Patch)</h3>
+<p>A Nine-patch drawable is a <b>stretchable bitmap image</b>, which Android will <b>automatically resize</b> to accommodate the contents of the view in which you have placed it as the <b>background</b>, e.g. nine-patch background for button, which must stretch to accommodate strings of various lengths. The rules for nine-patch image are following:</p>
+<ul class="important">
+    <li>Standard PNG image with alpha</li>
+    <li>Filename suffix is <b>".9.png"</b>, e.g. "btn_login_normal.9.png"</li>
+    <li>Image has an extra <b>1 pixel wide border</b>, used to define the stretchable/static/padding areas</li>
+    <li><b>Stretchable</b> sections are indicated by 1 px wide <abbr title="must be #000000"><b>black</b></abbr> line(s) in the <b>left and top</b> part of the border</li>
+    <li><b>Static</b> sections are indicated by fully <b>transparent</b> or white pixels</li>
+    <li><b>Padding</b> area (optional) is indicated by 1 px wide <abbr title="must be #000000"><b>black</b></abbr> line in the <b>right and bottom</b> part of the border</li>
+</ul>
+<p><img src="http://developer.android.com/images/ninepatch_raw.png" alt="Nine-patch" /></p>
+<p>Sources and useful links:
+    <a href="http://developer.android.com/guide/topics/graphics/2d-graphics.html#nine-patch">Canvas and Drawables</a>,
+    <a href="http://developer.android.com/tools/help/draw9patch.html">Draw 9-patch</a>
+</p>
 
 
-	<h3 id="colors">Colors</h3>
-	<p>Use color primarily for emphasis. Blue is the standard accent color in Android's color palette. Note that red and green may be indistinguishable to color-blind users. Primary colors are as follows:</p>
-	<ul style="padding-left:0;list-style-type:none;">
-		<li style="background-color: rgb(51, 181, 229);width:20%;float:left;text-align:center;"><span style="color:#fff;">#33B5E5</span></li>
-		<li style="background-color: rgb(170, 102, 204);width:20%;float:left;text-align:center;"><span style="color:#fff;">#AA66CC</span></li>
-		<li style="background-color: rgb(153, 204, 0);width:20%;float:left;text-align:center;"><span style="color:#fff;">#99CC00</span></li>
-		<li style="background-color: rgb(255, 187, 51);width:20%;float:left;text-align:center;"><span style="color:#fff;">#FFBB33</span></li>
-		<li style="background-color: rgb(255, 68, 68);width:20%;float:left;text-align:center;"><span style="color:#fff;">#FF4444</span></li>
-	</ul>
-	<div style="clear:both"></div>
-	<ul style="padding-left:0;list-style-type:none;">
-		<li style="background-color: rgb(0, 153, 204);width:20%;float:left;text-align:center;"><span style="color:#fff;">#0099CC</span></li>
-		<li style="background-color: rgb(153, 51, 204);width:20%;float:left;text-align:center;"><span style="color:#fff;">#9933CC</span></li>
-		<li style="background-color: rgb(102, 153, 0);width:20%;float:left;text-align:center;"><span style="color:#fff;">#669900</span></li>
-		<li style="background-color: rgb(255, 136, 0);width:20%;float:left;text-align:center;"><span style="color:#fff;">#FF8800</span></li>
-		<li style="background-color: rgb(204, 0, 0);width:20%;float:left;text-align:center;"><span style="color:#fff;">#CC0000</span></li>
-	</ul>
-	<p style="clear:both"></p>
-	<p>Sources and useful links: <a href="http://developer.android.com/design/style/color.html">Color</a></p>
+<h3 id="colors">색상</h3>
+<p>Use color primarily for emphasis. Blue is the standard accent color in Android's color palette. Note that red and green may be indistinguishable to color-blind users. Primary colors are as follows:</p>
+<ul style="padding-left:0;list-style-type:none;">
+    <li style="background-color: rgb(51, 181, 229);width:20%;float:left;text-align:center;"><span style="color:#fff;">#33B5E5</span></li>
+    <li style="background-color: rgb(170, 102, 204);width:20%;float:left;text-align:center;"><span style="color:#fff;">#AA66CC</span></li>
+    <li style="background-color: rgb(153, 204, 0);width:20%;float:left;text-align:center;"><span style="color:#fff;">#99CC00</span></li>
+    <li style="background-color: rgb(255, 187, 51);width:20%;float:left;text-align:center;"><span style="color:#fff;">#FFBB33</span></li>
+    <li style="background-color: rgb(255, 68, 68);width:20%;float:left;text-align:center;"><span style="color:#fff;">#FF4444</span></li>
+</ul>
+<div style="clear:both"></div>
+<ul style="padding-left:0;list-style-type:none;">
+    <li style="background-color: rgb(0, 153, 204);width:20%;float:left;text-align:center;"><span style="color:#fff;">#0099CC</span></li>
+    <li style="background-color: rgb(153, 51, 204);width:20%;float:left;text-align:center;"><span style="color:#fff;">#9933CC</span></li>
+    <li style="background-color: rgb(102, 153, 0);width:20%;float:left;text-align:center;"><span style="color:#fff;">#669900</span></li>
+    <li style="background-color: rgb(255, 136, 0);width:20%;float:left;text-align:center;"><span style="color:#fff;">#FF8800</span></li>
+    <li style="background-color: rgb(204, 0, 0);width:20%;float:left;text-align:center;"><span style="color:#fff;">#CC0000</span></li>
+</ul>
+<p style="clear:both"></p>
+<p>Sources and useful links: <a href="http://developer.android.com/design/style/color.html">Color</a></p>
 
 
-	<h3 id="holo-themes">Holo themes</h3>
-	<p>Android provides three system themes:</p>
-	<ul class="important">
-		<li>Holo Light</li>
-		<li>Holo Dark</li>
-		<li>Holo Light with dark action bar</li>
-	</ul>
-	<p>Sources and useful links: 
-		<a href="http://developer.android.com/design/style/themes.html">Themes</a>,
-		<a href="http://www.holoeverywhere.com/">Holo Everywhere</a>
-	</p>
+<h3 id="holo-themes">홀로(Holo) 테마</h3>
+<p>Android provides three system themes:</p>
+<ul class="important">
+    <li>Holo Light</li>
+    <li>Holo Dark</li>
+    <li>Holo Light with dark action bar</li>
+</ul>
+<p>Sources and useful links:
+    <a href="http://developer.android.com/design/style/themes.html">Themes</a>,
+    <a href="http://www.holoeverywhere.com/">Holo Everywhere</a>
+</p>
 
 
-	<h2 id="naming-conventions">Naming conventions</h2>
+<h2 id="naming-conventions">이름 규칙</h2>
 
 
-	<h3 id="naming-conventions-for-drawables">Naming conventions for drawables</h3>
-	<p>File names must contain only lowercase <b>a-z, 0-9, or _</b>.</p>
-	<p>Drawables for the specific <a href="http://developer.android.com/reference/android/view/View.html">views</a> (ListView, TextView, EditText, ProgressBar, CheckBox etc.) should be named like this views keeping the naming rules, e.g. drawable for CheckBox should be named "checkbox_on_bg.png".</p>
-	<table>
-		<tbody>
-			<tr>
-				<th>Asset Type</th>
-				<th>Prefix</th>
-				<th>Example</th>
-			</tr>
-			<tr>
-				<td>Action bar</td>
-				<td><code>ab_</code></td>
-				<td><code>ab_stacked.9.png</code></td>
-			</tr>
-			<tr>
-				<td>Button</td>
-				<td><code>btn_</code></td>
-				<td><code>btn_send_pressed.9.png</code></td>
-			</tr>
-			<tr>
-				<td>Dialog</td>
-				<td><code>dialog_</code></td>
-				<td><code>dialog_top.9.png</code></td>
-			</tr>
-			<tr>
-				<td>Divider</td>
-				<td><code>divider_</code></td>
-				<td><code>divider_horizontal.9.png</code></td>
-			</tr>
-			<tr>
-				<td>Icon</td>
-				<td><code>ic_</code></td>
-				<td><code>ic_star.png</code></td>
-			</tr>
-			<tr>
-				<td>Menu</td>
-				<td><code>menu_</code></td>
-				<td><code>menu_submenu_bg.9.png</code></td>
-			</tr>
-			<tr>
-				<td>Notification</td>
-				<td><code>notification_</code></td>
-				<td><code>notification_bg.9.png</code></td>
-			</tr>
-			<tr>
-				<td>Tabs</td>
-				<td><code>tab_</code></td>
-				<td><code>tab_pressed.9.png</code></td>
-			</tr>
-		</tbody>
-	</table>
-	<p>Sources and useful links: naming conventions taken from the 
-		<a href="http://developer.android.com/sdk/index.html">Android SDK</a>
-	</p>
+<h3 id="naming-conventions-for-drawables">Naming conventions for drawables</h3>
+<p>File names must contain only lowercase <b>a-z, 0-9, or _</b>.</p>
+<p>Drawables for the specific <a href="http://developer.android.com/reference/android/view/View.html">views</a> (ListView, TextView, EditText, ProgressBar, CheckBox etc.) should be named like this views keeping the naming rules, e.g. drawable for CheckBox should be named "checkbox_on_bg.png".</p>
+<table>
+    <tbody>
+    <tr>
+        <th>Asset Type</th>
+        <th>Prefix</th>
+        <th>Example</th>
+    </tr>
+    <tr>
+        <td>Action bar</td>
+        <td><code>ab_</code></td>
+        <td><code>ab_stacked.9.png</code></td>
+    </tr>
+    <tr>
+        <td>Button</td>
+        <td><code>btn_</code></td>
+        <td><code>btn_send_pressed.9.png</code></td>
+    </tr>
+    <tr>
+        <td>Dialog</td>
+        <td><code>dialog_</code></td>
+        <td><code>dialog_top.9.png</code></td>
+    </tr>
+    <tr>
+        <td>Divider</td>
+        <td><code>divider_</code></td>
+        <td><code>divider_horizontal.9.png</code></td>
+    </tr>
+    <tr>
+        <td>Icon</td>
+        <td><code>ic_</code></td>
+        <td><code>ic_star.png</code></td>
+    </tr>
+    <tr>
+        <td>Menu</td>
+        <td><code>menu_</code></td>
+        <td><code>menu_submenu_bg.9.png</code></td>
+    </tr>
+    <tr>
+        <td>Notification</td>
+        <td><code>notification_</code></td>
+        <td><code>notification_bg.9.png</code></td>
+    </tr>
+    <tr>
+        <td>Tabs</td>
+        <td><code>tab_</code></td>
+        <td><code>tab_pressed.9.png</code></td>
+    </tr>
+    </tbody>
+</table>
+<p>Sources and useful links: naming conventions taken from the
+    <a href="http://developer.android.com/sdk/index.html">Android SDK</a>
+</p>
 
 
-	<h3 id="naming-conventions-for-icon-assets">Naming conventions for icon assets</h3>
-	<table>
-		<tbody>
-			<tr>
-				<th>Asset Type</th>
-				<th>Prefix</th>
-				<th>Example</th>
-			</tr>
-			<tr>
-				<td>Icons</td>
-				<td><code>ic_</code></td>
-				<td><code>ic_star.png</code></td>
-			</tr>
-			<tr>
-				<td>Launcher icons</td>
-				<td><code>ic_launcher</code></td>
-				<td><code>ic_launcher_calendar.png</code></td>
-			</tr>
-			<tr>
-				<td>Action bar icons</td>
-				<td><code>ic_menu</code></td>
-				<td><code>ic_menu_archive.png</code></td>
-			</tr>
-			<tr>
-				<td>Status bar icons</td>
-				<td><code>ic_stat_notify</code></td>
-				<td><code>ic_stat_notify_msg.png</code></td>
-			</tr>
-			<tr>
-				<td>Tab icons</td>
-				<td><code>ic_tab</code></td>
-				<td><code>ic_tab_recent.png</code></td>
-			</tr>
-			<tr>
-				<td>Dialog icons</td>
-				<td><code>ic_dialog</code></td>
-				<td><code>ic_dialog_info.png</code></td>
-			</tr>
-		</tbody>
-	</table>
-	<p>Sources and useful links: 
-		<a href="http://developer.android.com/guide/practices/ui_guidelines/icon_design.html">Icon Design Guidelines</a>
-	</p>
+<h3 id="naming-conventions-for-icon-assets">Naming conventions for icon assets</h3>
+<table>
+    <tbody>
+    <tr>
+        <th>Asset Type</th>
+        <th>Prefix</th>
+        <th>Example</th>
+    </tr>
+    <tr>
+        <td>Icons</td>
+        <td><code>ic_</code></td>
+        <td><code>ic_star.png</code></td>
+    </tr>
+    <tr>
+        <td>Launcher icons</td>
+        <td><code>ic_launcher</code></td>
+        <td><code>ic_launcher_calendar.png</code></td>
+    </tr>
+    <tr>
+        <td>Action bar icons</td>
+        <td><code>ic_menu</code></td>
+        <td><code>ic_menu_archive.png</code></td>
+    </tr>
+    <tr>
+        <td>Status bar icons</td>
+        <td><code>ic_stat_notify</code></td>
+        <td><code>ic_stat_notify_msg.png</code></td>
+    </tr>
+    <tr>
+        <td>Tab icons</td>
+        <td><code>ic_tab</code></td>
+        <td><code>ic_tab_recent.png</code></td>
+    </tr>
+    <tr>
+        <td>Dialog icons</td>
+        <td><code>ic_dialog</code></td>
+        <td><code>ic_dialog_info.png</code></td>
+    </tr>
+    </tbody>
+</table>
+<p>Sources and useful links:
+    <a href="http://developer.android.com/guide/practices/ui_guidelines/icon_design.html">Icon Design Guidelines</a>
+</p>
 
 
-	<h3 id="naming-conventions-for-selector-states">Naming conventions for selector states</h3>
-	<table>
-		<tbody>
-			<tr>
-				<th>State</th>
-				<th>Suffix</th>
-				<th>Example</th>
-			</tr>
-			<tr>
-				<td>Normal</td>
-				<td><code>_normal</code></td>
-				<td><code>btn_order_normal.9.png</code></td>
-			</tr>
-			<tr>
-				<td>Pressed</td>
-				<td><code>_pressed</code></td>
-				<td><code>btn_order_pressed.9.png</code></td>
-			</tr>
-			<tr>
-				<td>Focused</td>
-				<td><code>_focused</code></td>
-				<td><code>btn_order_focused.9.png</code></td>
-			</tr>
-			<tr>
-				<td>Disabled</td>
-				<td><code>_disabled</code></td>
-				<td><code>btn_order_disabled.9.png</code></td>
-			</tr>
-			<tr>
-				<td>Selected</td>
-				<td><code>_selected</code></td>
-				<td><code>btn_order_selected.9.png</code></td>
-			</tr>
-		</tbody>
-	</table>
-	<p>Sources and useful links: 
-		<a href="http://developer.android.com/design/style/touch-feedback.html">Touch Feedback</a>
-	</p>
+<h3 id="naming-conventions-for-selector-states">Naming conventions for selector states</h3>
+<table>
+    <tbody>
+    <tr>
+        <th>State</th>
+        <th>Suffix</th>
+        <th>Example</th>
+    </tr>
+    <tr>
+        <td>Normal</td>
+        <td><code>_normal</code></td>
+        <td><code>btn_order_normal.9.png</code></td>
+    </tr>
+    <tr>
+        <td>Pressed</td>
+        <td><code>_pressed</code></td>
+        <td><code>btn_order_pressed.9.png</code></td>
+    </tr>
+    <tr>
+        <td>Focused</td>
+        <td><code>_focused</code></td>
+        <td><code>btn_order_focused.9.png</code></td>
+    </tr>
+    <tr>
+        <td>Disabled</td>
+        <td><code>_disabled</code></td>
+        <td><code>btn_order_disabled.9.png</code></td>
+    </tr>
+    <tr>
+        <td>Selected</td>
+        <td><code>_selected</code></td>
+        <td><code>btn_order_selected.9.png</code></td>
+    </tr>
+    </tbody>
+</table>
+<p>Sources and useful links:
+    <a href="http://developer.android.com/design/style/touch-feedback.html">Touch Feedback</a>
+</p>
 
 
-	<h3 id="organizing-drawables-to-directories">Organizing drawables to directories</h3>
-	<p>One drawable must have <b>the same file name</b> for all screen densities (ldpi, mdpi, hdpi etc.) and all these files must be organized <b>according to density</b> into the following directories. Here's the resources directory structure for drawables:</p>
-	<ul class="important">
-		<li>res
-			<ul>
-				<li>drawable-ldpi</li>
-				<li>drawable-mdpi</li>
-				<li>drawable-hdpi</li>
-				<li>drawable-xhdpi</li>
-				<li>drawable-xxhdpi</li>
-			</ul>
-		</li>
-	</ul>
+<h3 id="organizing-drawables-to-directories">Organizing drawables to directories</h3>
+<p>One drawable must have <b>the same file name</b> for all screen densities (ldpi, mdpi, hdpi etc.) and all these files must be organized <b>according to density</b> into the following directories. Here's the resources directory structure for drawables:</p>
+<ul class="important">
+    <li>res
+        <ul>
+            <li>drawable-ldpi</li>
+            <li>drawable-mdpi</li>
+            <li>drawable-hdpi</li>
+            <li>drawable-xhdpi</li>
+            <li>drawable-xxhdpi</li>
+        </ul>
+    </li>
+</ul>
 
 
-	<h2 id="resources">Resources</h2>
+<h2 id="resources">리소스</h2>
 
 
-	<h3 id="graphic-generators">Graphic generators</h3>
-	<ul>
-		<li><a href="http://android-ui-utils.googlecode.com/hg/asset-studio/dist/index.html">Android Asset Studio</a></li>
-		<li><a href="http://developer.android.com/distribute/promote/device-art.html">Device Art Generator</a></li>
-		<li><a href="http://developer.android.com/distribute/googleplay/promote/badges.html">Google Play Badges</a></li>
-	</ul>
+<h3 id="graphic-generators">Graphic generators</h3>
+<ul>
+    <li><a href="http://android-ui-utils.googlecode.com/hg/asset-studio/dist/index.html">Android Asset Studio</a></li>
+    <li><a href="http://developer.android.com/distribute/promote/device-art.html">Device Art Generator</a></li>
+    <li><a href="http://developer.android.com/distribute/googleplay/promote/badges.html">Google Play Badges</a></li>
+</ul>
 
 
-	<h3 id="useful-links-for-designers">Useful links for designers</h3>
-	<ul>
-		<li><a href="http://developer.android.com/design/index.html">Android Design Guidelines</a></li>
-		<li><a href="http://www.youtube.com/playlist?list=PLWz5rJ2EKKc8j2B95zGMb8muZvrIy-wcF">Android Design in Action</a></li>
-		<li><a href="http://labs.rampinteractive.co.uk/android_dp_px_calculator/">Android DP / PX Converter</a></li>
-		<li><a href="http://androidniceties.tumblr.com/">Android Niceties</a></li>
-		<li><a href="http://www.androidviews.net/">Android Views</a></li>
-		<li><a href="http://www.android-app-patterns.com/">App Patterns</a></li>
-		<li><a href="http://droidstyle.aaplab.com/">Droidstyle</a></li>
-		<li><a href="http://www.holoeverywhere.com/">Holo Everywhere</a></li>
-	</ul>
+<h3 id="useful-links-for-designers">Useful links for designers</h3>
+<ul>
+    <li><a href="http://developer.android.com/design/index.html">Android Design Guidelines</a></li>
+    <li><a href="http://www.youtube.com/playlist?list=PLWz5rJ2EKKc8j2B95zGMb8muZvrIy-wcF">Android Design in Action</a></li>
+    <li><a href="http://labs.rampinteractive.co.uk/android_dp_px_calculator/">Android DP / PX Converter</a></li>
+    <li><a href="http://androidniceties.tumblr.com/">Android Niceties</a></li>
+    <li><a href="http://www.androidviews.net/">Android Views</a></li>
+    <li><a href="http://www.android-app-patterns.com/">App Patterns</a></li>
+    <li><a href="http://droidstyle.aaplab.com/">Droidstyle</a></li>
+    <li><a href="http://www.holoeverywhere.com/">Holo Everywhere</a></li>
+</ul>
 
 
-	<h3 id="download">Download</h3>
-	<p class="download">
-		<a href="http://developer.android.com/shareables/icon_templates-v4.0.zip">Android Icon Templates Pack v4.0</a>
-		<br />
-		Source: <a href="http://developer.android.com/guide/practices/ui_guidelines/icon_design.html#templatespack">Android Developers</a>
-	</p>
-	<p class="download">
-		<a href="http://developer.android.com/downloads/design/Android_Design_Downloads_20120823.zip">Android Design 08/2012</a>
-		<br />
-		Source: <a href="http://developer.android.com/design/downloads/index.html">Android Developers</a>
-	</p>
-	<p class="download">
-		<a href="http://www.mediafire.com/?bw96xx77k5az549">Android UI Design Kit PSD 4.2</a>
-		<br />
-		Source: <a href="http://androiduiux.com/2013/03/12/android-ui-design-kit-psd-4-2-free-download/">Taylor Ling on Android UI &amp; UX</a>
-	</p>
-	<p class="download">
-		<a href="http://www.spiderflyapps.com/?wpdmact=process&amp;did=Mi5ob3RsaW5r">Android Developer Icons – Photoshop Shapes</a>
-		<br />
-		Source: <a href="http://www.spiderflyapps.com/downloads/aos-dev-icons-csh/">Spiderfly Apps</a>
-	</p>
+<h3 id="download">다운로드</h3>
+<p class="download">
+    <a href="http://developer.android.com/shareables/icon_templates-v4.0.zip">Android Icon Templates Pack v4.0</a>
+    <br />
+    출처: <a href="http://developer.android.com/guide/practices/ui_guidelines/icon_design.html#templatespack">Android Developers</a>
+</p>
+<p class="download">
+    <a href="http://developer.android.com/downloads/design/Android_Design_Downloads_20120823.zip">Android Design 08/2012</a>
+    <br />
+    출처: <a href="http://developer.android.com/design/downloads/index.html">Android Developers</a>
+</p>
+<p class="download">
+    <a href="http://www.mediafire.com/?bw96xx77k5az549">Android UI Design Kit PSD 4.2</a>
+    <br />
+    출처: <a href="http://androiduiux.com/2013/03/12/android-ui-design-kit-psd-4-2-free-download/">Taylor Ling on Android UI &amp; UX</a>
+</p>
+<p class="download">
+    <a href="http://www.spiderflyapps.com/?wpdmact=process&amp;did=Mi5ob3RsaW5r">Android Developer Icons – Photoshop Shapes</a>
+    <br />
+    출처: <a href="http://www.spiderflyapps.com/downloads/aos-dev-icons-csh/">Spiderfly Apps</a>
+</p>
 
 
-	<h2 id="written-by">Written by</h2>
-	<p>Copyright &copy; 2013 Petr Nohejl, <a href="http://petrnohejl.cz" title="Petr Nohejl">www.petrnohejl.cz</a></p>
-	<p>Document was last modified 
-		<abbr id="last-modified" class="noprint">
-		<script type="text/javascript">
-			document.write(lastModifiedAgo());
-			var abbr = document.getElementById("last-modified");
-			abbr.setAttribute("title", document.lastModified);
-		</script></abbr><abbr class="noscreen"><script type="text/javascript">document.write(document.lastModified);</script></abbr>.
-	</p>
-	<p>Found some mistake? Something is missing? 
-		Let me know or <a href="https://github.com/petrnohejl/Android-Cheatsheet-For-Graphic-Designers" title="GitHub">send pull request</a>.
-	</p>
-	<p>Thanks to 
-		Peter Kahoun for <a href="http://kahi.cz/blog/univerzalni-obecny-stylopis-html" title="Kahi's Universal Cascading Style Sheet">KUCSS</a> 
-		and Google Android for great <a href="http://developer.android.com" title="Android Developers">documentation</a>.
-		<br />
-		This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
-	</p>
-	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-		<p>
-			<input type="hidden" name="cmd" value="_s-xclick" />
-			<input type="hidden" name="hosted_button_id" value="JPXAC9K5NUWGL" />
-			<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" name="submit" alt="PayPal - The safer, easier way to pay online!" />
-			<img alt="" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-		</p>
-	</form>
+<h2 id="written-by">작성자 정보</h2>
+<p>Copyright &copy; 2013 Petr Nohejl, <a href="http://petrnohejl.cz" title="Petr Nohejl">www.petrnohejl.cz</a></p>
+<p>이 문서는
+    <abbr id="last-modified" class="noprint">
+        <script type="text/javascript">
+            document.write(lastModifiedAgo());
+            var abbr = document.getElementById("last-modified");
+            abbr.setAttribute("title", document.lastModified);
+        </script></abbr><abbr class="noscreen"><script type="text/javascript">document.write(document.lastModified);</script></abbr> 수정되었습니다.
+</p>
+<p>Found some mistake? Something is missing?
+    Let me know or <a href="https://github.com/petrnohejl/Android-Cheatsheet-For-Graphic-Designers" title="GitHub">send pull request</a>.
+</p>
+<p>Thanks to
+    Peter Kahoun for <a href="http://kahi.cz/blog/univerzalni-obecny-stylopis-html" title="Kahi's Universal Cascading Style Sheet">KUCSS</a>
+    and Google Android for great <a href="http://developer.android.com" title="Android Developers">documentation</a>.
+    <br />
+    이 저작물은 <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.ko">크리에이티브 커먼즈 저작자표시-동일조건변경허락 3.0 Unported 라이선스</a>에 따라 이용할 수 있습니다.
+</p>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+    <p>
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="JPXAC9K5NUWGL" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" name="submit" alt="PayPal - The safer, easier way to pay online!" />
+        <img alt="" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+    </p>
+</form>
 
 
 </body>
